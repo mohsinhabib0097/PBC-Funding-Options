@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Application | Park Business Capital</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&family=Crimson+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2B78DC",
+                        secondary: "#5ff38c",
+                        "dark-navy": "#0F172A",
+                        "soft-blue": "#F0F6FF",
+                        "brand-blue": "#2B78DC",
+                    },
+                    fontFamily: {
+                        sans: ["Rubik", "sans-serif"],
+                        serif: ["Crimson Pro", "serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .material-symbols-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Animated gradient background */
+        .gradient-bg {
+            background: linear-gradient(135deg, #F0F6FF 0%, #ffffff 50%, #E6FFEF 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Stagger animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-600 { animation-delay: 600ms; }
+        .delay-700 { animation-delay: 700ms; }
+        .delay-800 { animation-delay: 800ms; }
+
+        /* Progress indicator */
+        .progress-step {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .progress-step.active {
+            transform: scale(1.1);
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Checklist items hover */
+        .checklist-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .checklist-item:hover {
+            transform: translateX(8px);
+            background-color: rgba(43, 120, 220, 0.05);
+        }
+
+        /* Button effects */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(95, 243, 140, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(43, 120, 220, 0.3);
+        }
+
+        /* Document card animations */
+        .document-card {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .document-card:hover {
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: 0 20px 40px rgba(43, 120, 220, 0.15);
+        }
+
+        /* Timeline connector animation */
+        .timeline-line {
+            height: 0;
+            animation: growLine 1.5s ease forwards;
+            animation-delay: 800ms;
+        }
+
+        @keyframes growLine {
+            to {
+                height: 100%;
+            }
+        }
+
+        /* Pulse effect for important info */
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 1;
+            }
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2s ease-in-out infinite;
+        }
+
+        /* Smooth reveal for cards */
+        .reveal-card {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: revealCard 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes revealCard {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Sticky CTA button */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .sticky-cta.hidden {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+
+        /* Shine effect */
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            20%, 100% {
+                left: 100%;
+            }
+        }
+
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 3s infinite;
+        }
+
+        /* Magnetic button effect */
+        .magnetic-button {
+            transition: transform 0.2s ease;
+        }
+
+        /* Enhanced pulse for buttons */
+        @keyframes buttonPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(95, 243, 140, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(95, 243, 140, 0);
+            }
+        }
+
+        .pulse-cta {
+            animation: buttonPulse 2s infinite;
+        }
+
+        /* Glowing border effect */
+        @keyframes borderGlow {
+            0%, 100% {
+                border-color: rgba(43, 120, 220, 0.3);
+                box-shadow: 0 0 20px rgba(43, 120, 220, 0.2);
+            }
+            50% {
+                border-color: rgba(95, 243, 140, 0.6);
+                box-shadow: 0 0 40px rgba(95, 243, 140, 0.4);
+            }
+        }
+
+        .glow-border {
+            animation: borderGlow 3s infinite;
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(0);
+            animation: ripple-animation 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Enhanced button styles */
+        .cta-button-primary {
+            background: linear-gradient(135deg, #2B78DC 0%, #1e5bb8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button-primary:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased gradient-bg min-h-screen">
+
+    <!-- Sticky Floating CTA Button -->
+    <div class="sticky-cta hidden" id="floatingCTA">
+        <a href="https://www.parkbusinesscapital.com/start-application/" 
+           class="flex items-center gap-3 bg-secondary hover:bg-secondary/90 text-dark-navy font-bold px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-105 pulse-cta">
+            <span class="material-symbols-outlined text-2xl material-symbols-filled">rocket_launch</span>
+            <span>Start Application</span>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <img src="https://www.parkbusinesscapital.com/wp-content/uploads/2025/09/LOGO.svg" width="150" alt="Park Business Capital" />
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="tel:+13052092818" class="flex items-center gap-2 text-slate-600 hover:text-brand-blue transition-colors">
+                        <span class="material-symbols-outlined text-xl">call</span>
+                        <span class="hidden sm:inline font-medium">(305) 209-2818</span>
+                    </a>
+                    <a href="https://www.parkbusinesscapital.com/start-application/" 
+                       class="bg-brand-blue hover:bg-secondary text-white hover:text-dark-navy px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 shadow-lg shine-effect relative overflow-hidden">
+                        Start Application
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        
+        <!-- Hero Section -->
+        <div class="text-center mb-20">
+            <div class="inline-flex items-center gap-2 bg-secondary/20 text-dark-navy px-6 py-2 rounded-full mb-8 fade-in-up">
+                <span class="material-symbols-outlined text-xl">check_circle</span>
+                <span class="font-semibold text-sm">No credit impact • Takes 5 minutes</span>
+            </div>
+            
+            <h1 class="font-serif text-5xl lg:text-7xl font-bold text-dark-navy mb-6 fade-in-up delay-100">
+                You're just minutes away<br/>from <span class="text-brand-blue">funding</span>
+            </h1>
+            
+            <p class="text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto mb-8 leading-relaxed fade-in-up delay-200">
+                Let's get you prepared. Here's everything you need to know before starting your application.
+            </p>
+
+            <!-- Time Estimate Badge -->
+            <div class="inline-flex items-center gap-4 bg-white border-2 border-brand-blue/20 rounded-2xl px-8 py-5 shadow-lg fade-in-up delay-300">
+                <div class="flex items-center gap-3">
+                    <div class="w-14 h-14 bg-soft-blue rounded-xl flex items-center justify-center">
+                        <span class="material-symbols-outlined text-brand-blue text-3xl">schedule</span>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm text-slate-500 font-medium">Estimated time</div>
+                        <div class="text-2xl font-bold text-dark-navy">5 minutes</div>
+                    </div>
+                </div>
+                <div class="w-px h-12 bg-slate-200"></div>
+                <div class="flex items-center gap-3">
+                    <div class="w-14 h-14 bg-soft-blue rounded-xl flex items-center justify-center">
+                        <span class="material-symbols-outlined text-brand-blue text-3xl">bolt</span>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm text-slate-500 font-medium">Decision in</div>
+                        <div class="text-2xl font-bold text-dark-navy">5 minutes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Early CTA Button -->
+            <div class="mt-12 fade-in-up delay-400">
+                <a href="https://www.parkbusinesscapital.com/start-application/" 
+                   class="cta-button inline-flex items-center gap-3 bg-gradient-to-r from-brand-blue to-blue-600 hover:from-secondary hover:to-secondary text-white hover:text-dark-navy font-bold text-lg px-10 py-5 rounded-2xl shadow-xl relative z-10 transition-all">
+                    <span class="material-symbols-outlined text-2xl material-symbols-filled">edit_note</span>
+                    <span>Start Your Application Now</span>
+                    <span class="material-symbols-outlined text-2xl">arrow_forward</span>
+                </a>
+                <p class="mt-4 text-sm text-slate-500">
+                    ✓ No credit check • ✓ 5-minute process • ✓ Instant decision
+                </p>
+            </div>
+        </div>
+
+        <!-- Application Process Timeline -->
+        <div class="mb-24 fade-in-up delay-400">
+            <h2 class="text-3xl lg:text-4xl font-bold text-dark-navy text-center mb-16">
+                Here's how it works
+            </h2>
+            
+            <div class="grid lg:grid-cols-3 gap-8 relative">
+                <!-- Connecting Line (desktop only) -->
+                <div class="hidden lg:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue via-brand-blue to-secondary" style="width: calc(100% - 120px); margin: 0 60px;"></div>
+                
+                <!-- Step 1 -->
+                <div class="relative reveal-card delay-500">
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-transparent hover:border-brand-blue/30 transition-all">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg pulse-ring">
+                            1
+                        </div>
+                        <!-- Step Image -->
+                        <div class="mb-6 mt-4 overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop" 
+                                 alt="Fill Application Form" 
+                                 class="w-full h-48 object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-bold text-dark-navy mb-3">Fill out the form</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Answer a few simple questions about your business. It's quick, secure, and won't affect your credit score.
+                        </p>
+                        <p class="text-xs text-slate-400 mt-3">📸 Replace with form screenshot</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative reveal-card delay-600">
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-transparent hover:border-brand-blue/30 transition-all">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg pulse-ring" style="animation-delay: 0.3s;">
+                            2
+                        </div>
+                        <!-- Step Image -->
+                        <div class="mb-6 mt-4 overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" 
+                                 alt="Instant Analysis" 
+                                 class="w-full h-48 object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-bold text-dark-navy mb-3">Instant analysis</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Our smart system reviews your application in real-time. Most applications are approved within 5 minutes.
+                        </p>
+                        <p class="text-xs text-slate-400 mt-3">📸 Replace with analytics/approval image</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative reveal-card delay-700">
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-transparent hover:border-brand-blue/30 transition-all">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-dark-navy font-bold text-xl shadow-lg pulse-ring" style="animation-delay: 0.6s;">
+                            3
+                        </div>
+                        <!-- Step Image -->
+                        <div class="mb-6 mt-4 overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=250&fit=crop" 
+                                 alt="Access Funds" 
+                                 class="w-full h-48 object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-bold text-dark-navy mb-3">Access your funds</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Once approved, get instant access to your funds with a Park account, or within 24 hours otherwise.
+                        </p>
+                        <p class="text-xs text-slate-400 mt-3">📸 Replace with success/celebration image</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA after timeline -->
+            <div class="text-center mt-16 fade-in-up delay-800">
+                <div class="bg-gradient-to-br from-secondary/20 via-soft-blue to-secondary/20 rounded-3xl p-8 glow-border border-2">
+                    <p class="text-xl font-semibold text-dark-navy mb-6">
+                        🚀 Most applications are <span class="text-brand-blue">approved in under 5 minutes</span>
+                    </p>
+                    <a href="https://www.parkbusinesscapital.com/start-application/" 
+                       class="cta-button inline-flex items-center gap-3 bg-dark-navy hover:bg-secondary text-white hover:text-dark-navy font-bold text-lg px-10 py-5 rounded-2xl shadow-xl relative z-10 transition-all">
+                        <span>Get Started Now</span>
+                        <span class="material-symbols-outlined text-2xl">trending_up</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- What You'll Need Section -->
+        <div class="mb-24 fade-in-up delay-400">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: Heading and description -->
+                <div>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-dark-navy mb-6">
+                        What you'll need to apply
+                    </h2>
+                    <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+                        Having these ready will make your application even faster. Don't worry if you don't have everything—you can still get started.
+                    </p>
+
+                    <div class="bg-secondary/10 border-l-4 border-secondary rounded-r-2xl p-6">
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary text-2xl flex-shrink-0 material-symbols-filled">info</span>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                <strong class="font-bold">Pro tip:</strong> Having your business financial statements ready can speed up approval, but they're not always required.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Document Checklist -->
+                <div class="space-y-4 fade-in-up delay-500">
+                    <div class="checklist-item bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-soft-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-brand-blue text-2xl">badge</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-dark-navy text-lg mb-1">Business Information</h4>
+                                <p class="text-slate-600 text-sm">Legal business name, EIN, formation date, and business address</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-soft-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-brand-blue text-2xl">person</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-dark-navy text-lg mb-1">Personal Details</h4>
+                                <p class="text-slate-600 text-sm">Full name, SSN, date of birth, and contact information</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-soft-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-brand-blue text-2xl">account_balance</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-dark-navy text-lg mb-1">Banking Details</h4>
+                                <p class="text-slate-600 text-sm">Bank account and routing number for fund disbursement</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-soft-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-brand-blue text-2xl">attach_money</span>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-dark-navy text-lg mb-1">Revenue Information</h4>
+                                <p class="text-slate-600 text-sm">Monthly or annual revenue to determine your credit line amount</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mid-page CTA -->
+                    <div class="mt-8 text-center lg:text-left fade-in-up delay-700">
+                        <a href="https://www.parkbusinesscapital.com/start-application/" 
+                           class="cta-button inline-flex items-center gap-3 bg-gradient-to-r from-secondary to-green-400 text-dark-navy font-bold text-lg px-10 py-5 rounded-2xl shadow-xl relative z-10 transition-all hover:scale-105">
+                            <span class="material-symbols-outlined text-2xl material-symbols-filled">check_circle</span>
+                            <span>I'm Ready - Start Application</span>
+                        </a>
+                        <p class="mt-3 text-sm text-slate-600">
+                            Don't have everything? No problem - start anyway!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="mb-24 bg-white rounded-[3rem] fade-in-up delay-600 p-12 lg:p-16 shadow-2xl">
+            <h2 class="text-3xl lg:text-4xl font-bold text-dark-navy text-center mb-4">
+                Why businesses choose Park
+            </h2>
+            <p class="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
+                Join 900,000+ businesses that trust us for their financing needs
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center fade-in-up delay-800">
+                    <div class="w-20 h-20 bg-gradient-to-br from-brand-blue to-brand-blue/70 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-white text-4xl material-symbols-filled">verified</span>
+                    </div>
+                    <h3 class="font-bold text-dark-navy text-xl mb-3">No credit impact</h3>
+                    <p class="text-slate-600">Applying won't affect your personal or business credit score</p>
+                </div>
+
+                <div class="text-center fade-in-up delay-800">
+                    <div class="w-20 h-20 bg-gradient-to-br from-brand-blue to-brand-blue/70 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-white text-4xl material-symbols-filled">shield</span>
+                    </div>
+                    <h3 class="font-bold text-dark-navy text-xl mb-3">Bank-level security</h3>
+                    <p class="text-slate-600">Your information is protected with 256-bit encryption</p>
+                </div>
+
+                <div class="text-center fade-in-up delay-800">
+                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-secondary/70 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transform hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-dark-navy text-4xl material-symbols-filled">support_agent</span>
+                    </div>
+                    <h3 class="font-bold text-dark-navy text-xl mb-3">Expert support</h3>
+                    <p class="text-slate-600">Real people ready to help throughout your journey</p>
+                </div>
+            </div>
+
+            <!-- Another CTA -->
+            <div class="mt-12 text-center">
+                <a href="https://www.parkbusinesscapital.com/start-application/" 
+                   class="cta-button inline-flex items-center gap-3 bg-brand-blue hover:bg-secondary text-white hover:text-dark-navy font-bold text-xl px-12 py-6 rounded-2xl shadow-2xl relative z-10 transition-all">
+                    <span>Apply Now - It's Free!</span>
+                    <span class="material-symbols-outlined text-2xl material-symbols-filled">rocket_launch</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Customer Success Stories -->
+        <div class="mb-24 fade-in-up delay-400">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 bg-secondary/20 px-6 py-2 rounded-full mb-6">
+                    <span class="material-symbols-outlined text-secondary material-symbols-filled">star</span>
+                    <span class="font-semibold text-dark-navy">Customer Reviews</span>
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-dark-navy mb-6">
+                    Don't just take our word for it
+                </h2>
+                <p class="text-slate-600 text-xl max-w-2xl mx-auto">
+                    Hear from real businesses who trusted Park Business Capital for their funding needs
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                <!-- Featured Testimonial 1 - Justin Andrews -->
+                <div class="relative bg-gradient-to-br from-soft-blue via-white to-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all group border border-brand-blue/10">
+                    <!-- Quote Icon -->
+                    <div class="absolute top-8 right-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-brand-blue" style="font-size: 80px;">format_quote</span>
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <!-- Stars -->
+                        <div class="flex gap-1 mb-6">
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                        </div>
+                        
+                        <!-- Review Text -->
+                        <p class="text-slate-700 text-lg leading-relaxed mb-8">
+                            "I had an amazing experience with Park Business Capital. From start to finish, the team made the entire funding process smooth and stress-free. They guided me through every step—from application to funding—so professionally and with such clear communication that everything felt effortless. It truly was an A-to-Z experience with ease. Highly recommend Park Business Capital to anyone looking for reliable and efficient business funding!"
+                        </p>
+                        
+                        <!-- Customer Name with Avatar -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                                JA
+                            </div>
+                            <div>
+                                <div class="font-bold text-dark-navy text-xl">Justin Andrews</div>
+                                <div class="text-slate-500 text-sm">Verified Customer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Testimonial 2 - Michelle Amarra -->
+                <div class="relative bg-gradient-to-br from-secondary/10 via-white to-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all group border border-secondary/10">
+                    <!-- Quote Icon -->
+                    <div class="absolute top-8 right-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-secondary" style="font-size: 80px;">format_quote</span>
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <!-- Stars -->
+                        <div class="flex gap-1 mb-6">
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-secondary text-2xl">star</span>
+                        </div>
+                        
+                        <!-- Review Text -->
+                        <p class="text-slate-700 text-lg leading-relaxed mb-8">
+                            "Working with the Park team was seamless from start to finish. They worked diligently to get me funded as quickly as possible, offering great rates, excellent customer service, and clear explanations every step of the way. Abdullah and David were both fantastic — professional, responsive, and truly dedicated to making the process smooth. Highly recommend!"
+                        </p>
+                        
+                        <!-- Customer Name with Avatar -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-gradient-to-br from-secondary to-green-400 rounded-full flex items-center justify-center text-dark-navy font-bold text-xl shadow-lg">
+                                MA
+                            </div>
+                            <div>
+                                <div class="font-bold text-dark-navy text-xl">Michelle Amarra</div>
+                                <div class="text-slate-500 text-sm">Verified Customer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smaller Testimonials Row -->
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Testimonial 3 - Sam Cooper -->
+                <div class="relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all group border-2 border-slate-100 hover:border-brand-blue/20">
+                    <div class="flex items-start gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
+                                SC
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex gap-0.5 mb-3">
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed mb-4">
+                                "Abdullah was very easy to work with and delivered the specific funding we needed. He and his team were very professional and timely communication wise...highly recommended."
+                            </p>
+                            <div>
+                                <div class="font-bold text-dark-navy">Sam Cooper</div>
+                                <div class="text-slate-500 text-sm">Verified Customer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 - Justin Searle -->
+                <div class="relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all group border-2 border-slate-100 hover:border-brand-blue/20">
+                    <div class="flex items-start gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-gradient-to-br from-secondary to-green-400 rounded-full flex items-center justify-center text-dark-navy font-bold text-lg shadow-md">
+                                JS
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex gap-0.5 mb-3">
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                                <span class="material-symbols-outlined material-symbols-filled text-secondary text-lg">star</span>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed mb-4">
+                                "Aiden did a great job. Been talking to him for months. Didn't pester me too much but did great follow up. Highly recommend!"
+                            </p>
+                            <div>
+                                <div class="font-bold text-dark-navy">Justin Searle</div>
+                                <div class="text-slate-500 text-sm">Verified Customer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="text-center mt-12">
+                <div class="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-soft-blue to-secondary/10 px-10 py-6 rounded-2xl border-2 border-brand-blue/10">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md">
+                            <span class="material-symbols-outlined text-secondary text-2xl material-symbols-filled">verified_user</span>
+                        </div>
+                        <div class="text-left">
+                            <div class="font-bold text-dark-navy text-lg">100% Verified Reviews</div>
+                            <div class="text-slate-600 text-sm">From real Park Business Capital customers</div>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block w-px h-12 bg-slate-300"></div>
+                    <a href="https://www.parkbusinesscapital.com/start-application/" 
+                       class="bg-brand-blue hover:bg-secondary text-white hover:text-dark-navy px-8 py-3 rounded-xl font-bold transition-all hover:scale-105 shadow-lg whitespace-nowrap">
+                        Start Your Application
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Signals -->
+        <div class="mb-16 fade-in-up delay-700">
+            <div class="grid lg:grid-cols-3 gap-6">
+                <!-- Stat Card 1 -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-brand-blue/10 hover:border-brand-blue/30 transition-all group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-brand-blue to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-white text-3xl material-symbols-filled">account_balance</span>
+                        </div>
+                    </div>
+                    <div class="text-5xl font-bold text-brand-blue mb-2">$16B+</div>
+                    <div class="text-lg font-semibold text-dark-navy mb-1">Working capital delivered</div>
+                    <div class="text-slate-500">To 900K+ U.S. businesses nationwide</div>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-secondary/10 hover:border-secondary/30 transition-all group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-secondary to-green-400 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-dark-navy text-3xl material-symbols-filled">verified</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <img src="https://www.bluevine.com/_next/image?url=%2Fimages%2Fcommon%2Fbadge_bbb.png&w=256&q=75&dpl=dpl_3M71WbcyN13cLkah6QrgYwCcxxFB" alt="BBB" class="h-12">
+                        <div class="text-4xl font-bold text-dark-navy">A+</div>
+                    </div>
+                    <div class="text-lg font-semibold text-dark-navy mb-1">BBB Accredited</div>
+                    <div class="text-slate-500">Trusted business partner</div>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-[#00b67a]/10 hover:border-[#00b67a]/30 transition-all group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-[#00b67a] to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-white text-3xl material-symbols-filled">star</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="text-4xl font-bold text-dark-navy">4.5</div>
+                        <div class="flex text-[#00b67a] gap-0.5">
+                            <span class="material-symbols-outlined material-symbols-filled text-xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-xl">star</span>
+                            <span class="material-symbols-outlined material-symbols-filled text-xl">star_half</span>
+                        </div>
+                    </div>
+                    <div class="text-lg font-semibold text-dark-navy mb-1">Excellent on Trustpilot</div>
+                    <div class="text-slate-500">Based on 1,500+ reviews</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Urgency Section -->
+        <div class="mb-16 fade-in-up delay-700">
+            <div class="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-brand-blue via-blue-600 to-blue-700 p-12 lg:p-16 shadow-2xl">
+                <!-- Decorative elements -->
+                <div class="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left side - Content -->
+                        <div>
+                            <div class="inline-flex items-center gap-2 bg-secondary text-dark-navy px-5 py-2.5 rounded-full font-bold text-sm mb-6 shadow-lg">
+                                <span class="material-symbols-outlined text-lg material-symbols-filled">bolt</span>
+                                <span>LIMITED TIME OFFER</span>
+                            </div>
+                            
+                            <h3 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                                Get approved in as fast as <span class="text-secondary">5 minutes</span>
+                            </h3>
+                            
+                            <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                                Over 90% of applications approved same-day. Join thousands of businesses who chose the faster path to funding.
+                            </p>
+
+                            <!-- Stats mini cards -->
+                            <div class="grid grid-cols-2 gap-4 mb-8">
+                                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+                                    <div class="text-3xl font-bold text-white mb-1">90%+</div>
+                                    <div class="text-sm text-blue-100">Same-day approval</div>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+                                    <div class="text-3xl font-bold text-white mb-1">5 min</div>
+                                    <div class="text-sm text-blue-100">Application time</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right side - CTA -->
+                        <div class="text-center lg:text-right">
+                            <div class="inline-block bg-white rounded-3xl p-8 shadow-2xl">
+                                <div class="mb-6">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-green-400 rounded-2xl flex items-center justify-center mx-auto shadow-lg mb-4">
+                                        <span class="material-symbols-outlined text-dark-navy text-4xl material-symbols-filled">rocket_launch</span>
+                                    </div>
+                                    <div class="text-2xl font-bold text-dark-navy mb-2">Ready to start?</div>
+                                    <div class="text-slate-600">Your funding is just minutes away</div>
+                                </div>
+                                
+                                <a href="https://www.parkbusinesscapital.com/start-application/" 
+                                   class="cta-button inline-flex items-center gap-3 bg-gradient-to-r from-brand-blue to-blue-600 hover:from-secondary hover:to-green-400 text-white hover:text-dark-navy font-bold text-xl px-10 py-5 rounded-2xl shadow-xl relative z-10 transition-all w-full justify-center mb-4">
+                                    <span class="material-symbols-outlined text-2xl material-symbols-filled">edit_note</span>
+                                    <span>Apply Now</span>
+                                </a>
+                                
+                                <div class="flex items-center justify-center gap-4 text-sm text-slate-600">
+                                    <div class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-secondary text-lg material-symbols-filled">check_circle</span>
+                                        <span>No credit check</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-secondary text-lg material-symbols-filled">check_circle</span>
+                                        <span>Secure process</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="text-center fade-in-up delay-800">
+            <div class="bg-gradient-to-br from-dark-navy via-brand-blue to-dark-navy rounded-[3rem] p-12 lg:p-16 shadow-2xl relative overflow-hidden">
+                <!-- Animated background elements -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-blue/20 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                        Ready to get started?
+                    </h2>
+                    <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+                        Your application takes just 5 minutes, and you'll get a decision almost instantly.
+                    </p>
+                    
+                    <a href="https://www.parkbusinesscapital.com/start-application/" 
+                       class="cta-button inline-flex items-center gap-3 bg-secondary hover:bg-secondary/90 text-dark-navy font-bold text-xl px-12 py-5 rounded-2xl shadow-2xl relative z-10">
+                        <span>Start your application</span>
+                        <span class="material-symbols-outlined text-2xl">arrow_forward</span>
+                    </a>
+                    
+                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-blue-100">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-secondary">check_circle</span>
+                            <span class="text-sm">No credit check</span>
+                        </div>
+                        <div class="hidden sm:block w-px h-6 bg-blue-300/30"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-secondary">check_circle</span>
+                            <span class="text-sm">5-minute application</span>
+                        </div>
+                        <div class="hidden sm:block w-px h-6 bg-blue-300/30"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-secondary">check_circle</span>
+                            <span class="text-sm">Instant decision</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-8 text-slate-500 text-sm">
+                Questions? Call us at <a href="tel:+13052092818" class="text-brand-blue font-semibold hover:underline">(305) 209-2818</a> 
+                or email <a href="/cdn-cgi/l/email-protection#94fdfaf2fbd4e4f5e6fff6e1e7fdfaf1e7e7f7f5e4fde0f5f8baf7fbf9" class="text-brand-blue font-semibold hover:underline"><span class="__cf_email__" data-cfemail="7910171f163909180b121b0c0a10171c0a0a1a1809100d1815571a1614">[email&#160;protected]</span></a>
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-8">
+                    <img src="https://www.parkbusinesscapital.com/wp-content/uploads/2025/09/LOGO.svg" width="120" alt="Park Business Capital" />
+                    <div class="hidden md:block w-px h-12 bg-slate-200"></div>
+                    <p class="text-xs text-slate-500 max-w-md">
+                        The Park Business Capital Line of Credit is issued by Capital Bank, N.A. and is serviced by Park Business Capital.
+                    </p>
+                </div>
+                <div class="flex items-center gap-6 text-sm text-slate-600">
+                    <a href="#" class="hover:text-brand-blue transition-colors">Privacy Policy</a>
+                    <span class="text-slate-300">•</span>
+                    <a href="#" class="hover:text-brand-blue transition-colors">Terms of Service</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-slate-100 text-center">
+                <p class="text-xs text-slate-500">
+                             © 2026 Park Business Capital Inc. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Sticky floating CTA button
+        const floatingCTA = document.getElementById('floatingCTA');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Show floating CTA after scrolling 500px
+            if (scrollTop > 500) {
+                floatingCTA.classList.remove('hidden');
+            } else {
+                floatingCTA.classList.add('hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Add magnetic effect to buttons
+        const buttons = document.querySelectorAll('.magnetic-button, .cta-button');
+        
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', function(e) {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            button.addEventListener('mouseleave', function(e) {
+                this.style.transform = 'scale(1)';
+            });
+
+            button.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const deltaX = (x - centerX) / centerX;
+                const deltaY = (y - centerY) / centerY;
+                
+                this.style.transform = `scale(1.05) translate(${deltaX * 5}px, ${deltaY * 5}px)`;
+            });
+        });
+
+        // Track CTA clicks
+        document.querySelectorAll('a[href*="start-application"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Application CTA clicked from:', this.textContent.trim());
+            });
+        });
+
+        // Add entrance animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-up, .reveal-card, .scale-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add ripple effect on CTA clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Smooth scroll for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add particle effect on hover for main CTA
+        const mainCTAs = document.querySelectorAll('.cta-button');
+        mainCTAs.forEach(cta => {
+            cta.addEventListener('mouseenter', function() {
+                createParticles(this);
+            });
+        });
+
+        function createParticles(element) {
+            for (let i = 0; i < 5; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '4px';
+                particle.style.height = '4px';
+                particle.style.background = '#5ff38c';
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                
+                const rect = element.getBoundingClientRect();
+                particle.style.left = Math.random() * rect.width + 'px';
+                particle.style.top = Math.random() * rect.height + 'px';
+                
+                element.style.position = 'relative';
+                element.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.style.transition = 'all 0.8s ease-out';
+                    particle.style.transform = `translateY(-${Math.random() * 50 + 20}px)`;
+                    particle.style.opacity = '0';
+                }, 10);
+                
+                setTimeout(() => particle.remove(), 800);
+            }
+        }
+    </script>
+
+</body></html>
