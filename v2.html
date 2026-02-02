@@ -18,148 +18,103 @@
         }
         
         :root {
-            --navy: #0f1c2e;
-            --navy-light: #1a2d47;
+            --navy: #1e293b;
+            --navy-dark: #0f172a;
             --blue: #2563eb;
-            --blue-light: #3b82f6;
-            --mint: #34d399;
+            --mint: #10b981;
             --mint-light: #d1fae5;
-            --mint-dark: #059669;
-            --cream: #fefdfb;
-            --peach: #fef3e2;
+            --mint-bg: #ecfdf5;
+            --cream: #fffdf9;
+            --peach: #fef7ed;
             --gray-100: #f1f5f9;
+            --gray-300: #cbd5e1;
             --gray-400: #94a3b8;
+            --gray-500: #64748b;
             --gray-600: #475569;
         }
         
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            background: var(--cream);
+            background: linear-gradient(135deg, var(--cream) 0%, #ffffff 40%, var(--mint-bg) 100%);
             color: var(--navy);
             line-height: 1.6;
             min-height: 100vh;
             overflow-x: hidden;
         }
         
-        /* Hero Section */
-        .hero {
+        /* Main Container */
+        .page-wrapper {
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            padding: 2rem;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 3rem;
             position: relative;
-            overflow: hidden;
-        }
-        
-        /* Animated background blobs */
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        .blob-1 {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-            top: -10%;
-            left: -10%;
-            animation-delay: 0s;
-        }
-        
-        .blob-2 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-            bottom: -5%;
-            right: -5%;
-            animation-delay: -7s;
-        }
-        
-        .blob-3 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            top: 50%;
-            left: 30%;
-            animation-delay: -14s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -30px) scale(1.05); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(20px, 30px) scale(1.02); }
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             width: 100%;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .hero-text {
-            position: relative;
         }
         
         /* Logo */
         .logo {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
         
         .logo img {
-            height: 40px;
+            height: 42px;
             width: auto;
         }
         
-        /* Headline */
-        h1 {
-            font-size: clamp(2.75rem, 5.5vw, 4rem);
-            font-weight: 800;
-            color: var(--navy);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
+        /* Hero Grid */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 5rem;
+            align-items: center;
         }
         
-        h1 .accent {
-            color: var(--navy);
+        /* Text Content */
+        .hero-text {
+            padding-right: 2rem;
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 5vw, 4.25rem);
+            font-weight: 800;
+            color: var(--navy-dark);
+            line-height: 1.08;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.035em;
+        }
+        
+        .headline-row {
+            display: block;
+        }
+        
+        .business-word {
             position: relative;
             display: inline-block;
         }
         
-        /* Stylized leaf/plant accent */
-        .leaf-accent {
+        /* Leaf SVG accent */
+        .leaf-icon {
             position: absolute;
-            top: -8px;
-            right: -20px;
-            width: 28px;
-            height: 28px;
-        }
-        
-        .leaf-accent svg {
-            width: 100%;
-            height: 100%;
-            fill: var(--mint);
+            top: -2px;
+            right: -32px;
+            width: 26px;
+            height: 26px;
         }
         
         .subtitle {
-            font-size: 1.2rem;
-            color: var(--gray-600);
+            font-size: 1.175rem;
+            color: var(--gray-500);
             margin-bottom: 2.5rem;
-            max-width: 440px;
-            line-height: 1.7;
+            max-width: 420px;
+            line-height: 1.75;
+            font-weight: 400;
         }
         
         /* CTA Button */
@@ -168,190 +123,237 @@
             align-items: center;
             gap: 0.875rem;
             background: var(--mint-light);
-            color: var(--navy);
-            font-size: 1.125rem;
+            color: var(--navy-dark);
+            font-size: 1.0625rem;
             font-weight: 700;
-            padding: 1.125rem 2.25rem;
-            border-radius: 100px;
+            padding: 1.125rem 2rem;
+            border-radius: 60px;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            box-shadow: 0 4px 14px rgba(52, 211, 153, 0.25);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
         }
         
         .cta-button:hover {
-            background: var(--mint);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(52, 211, 153, 0.35);
-        }
-        
-        .cta-button:active {
-            transform: translateY(-1px);
+            background: #a7f3d0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
         }
         
         .cta-button svg {
             transition: transform 0.3s ease;
+            stroke-width: 2.5;
         }
         
         .cta-button:hover svg {
-            transform: translateX(5px);
+            transform: translateX(4px);
         }
         
-        /* Media logos */
+        /* Media Logos */
+        .media-section {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-300);
+        }
+        
+        .media-label {
+            font-size: 0.6875rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+        
         .media-logos {
             display: flex;
             align-items: center;
-            gap: 1.75rem;
-            margin-top: 3.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0,0,0,0.06);
-            flex-wrap: wrap;
-        }
-        
-        .media-logos span {
-            font-size: 0.7rem;
-            color: var(--gray-400);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 600;
-        }
-        
-        .logo-row {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
         }
         
         .media-logos img {
-            height: 16px;
+            height: 18px;
             width: auto;
-            opacity: 0.35;
+            opacity: 0.4;
             filter: grayscale(100%);
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
         }
         
         .media-logos img:hover {
-            opacity: 0.6;
-            filter: grayscale(0%);
+            opacity: 0.65;
         }
         
-        /* Hero Image */
-        .hero-image {
+        /* Hero Image Section */
+        .hero-visual {
             position: relative;
         }
         
-        .image-wrapper {
+        /* Main image container */
+        .image-container {
             position: relative;
-            border-radius: 32px;
+            border-radius: 24px;
             overflow: hidden;
             box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.15),
-                0 0 0 1px rgba(0, 0, 0, 0.05);
+                0 25px 60px -15px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(0, 0, 0, 0.03);
         }
         
-        .image-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 60%, rgba(15, 28, 46, 0.1) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        .hero-image img {
+        .image-container img {
             width: 100%;
             height: auto;
             display: block;
-            max-height: 600px;
+            aspect-ratio: 16/12;
             object-fit: cover;
             object-position: center top;
         }
         
-        /* Decorative frame elements */
-        .frame-accent {
+        /* Corner accents */
+        .corner-accent {
             position: absolute;
-            width: 120px;
-            height: 120px;
-            border: 3px solid var(--mint);
-            border-radius: 24px;
-            opacity: 0.5;
+            width: 80px;
+            height: 80px;
+            border: 2.5px solid var(--mint);
+            border-radius: 16px;
+            pointer-events: none;
         }
         
-        .frame-accent-1 {
-            top: -20px;
-            right: -20px;
+        .corner-top-right {
+            top: -16px;
+            right: -16px;
             border-left: none;
             border-bottom: none;
         }
         
-        .frame-accent-2 {
-            bottom: -20px;
-            left: -20px;
+        .corner-bottom-left {
+            bottom: -16px;
+            left: -16px;
             border-right: none;
             border-top: none;
         }
         
-        /* Floating badge */
+        /* Trust Badge */
         .trust-badge {
             position: absolute;
-            bottom: 30px;
-            left: -30px;
+            bottom: 60px;
+            left: -20px;
             background: white;
-            padding: 1rem 1.25rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            padding: 0.875rem 1.125rem;
+            border-radius: 14px;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(0, 0, 0, 0.03);
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            z-index: 10;
-            animation: badgeFloat 4s ease-in-out infinite;
+            z-index: 20;
         }
         
-        @keyframes badgeFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        
-        .trust-badge-icon {
-            width: 40px;
-            height: 40px;
+        .badge-icon {
+            width: 38px;
+            height: 38px;
             background: var(--mint-light);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         
-        .trust-badge-icon svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--mint-dark);
+        .badge-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--mint);
+            stroke-width: 2.5;
         }
         
-        .trust-badge-text {
-            font-size: 0.8rem;
-            color: var(--gray-600);
+        .badge-text {
             line-height: 1.3;
         }
         
-        .trust-badge-text strong {
-            display: block;
-            color: var(--navy);
+        .badge-title {
+            font-size: 0.875rem;
             font-weight: 700;
-            font-size: 0.9rem;
+            color: var(--navy-dark);
         }
         
+        .badge-subtitle {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+        
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-fade-up {
+            animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+        
         /* Responsive */
-        @media (max-width: 900px) {
-            .hero {
-                padding: 1.5rem;
-                min-height: 100vh;
-                padding-top: 2rem;
-                padding-bottom: 3rem;
+        @media (max-width: 1024px) {
+            .page-wrapper {
+                padding: 2rem;
             }
             
-            .hero-content {
+            .hero-grid {
+                gap: 3rem;
+            }
+            
+            h1 {
+                font-size: 2.75rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 1.5rem;
+                justify-content: flex-start;
+                padding-top: 2rem;
+            }
+            
+            .hero-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
             }
@@ -359,21 +361,30 @@
             .hero-text {
                 order: 2;
                 text-align: center;
+                padding-right: 0;
             }
             
-            .hero-image {
+            .hero-visual {
                 order: 1;
-                max-width: 400px;
+                max-width: 500px;
                 margin: 0 auto;
             }
             
             .logo {
                 display: flex;
                 justify-content: center;
+                margin-bottom: 2rem;
             }
             
             h1 {
                 font-size: 2.25rem;
+            }
+            
+            .leaf-icon {
+                width: 20px;
+                height: 20px;
+                right: -24px;
+                top: 0;
             }
             
             .subtitle {
@@ -386,137 +397,111 @@
                 justify-content: center;
             }
             
+            .media-section {
+                text-align: center;
+            }
+            
             .media-logos {
                 justify-content: center;
-                flex-direction: column;
-                gap: 1rem;
             }
             
-            .logo-row {
-                justify-content: center;
-            }
-            
-            .frame-accent {
+            .corner-accent {
                 display: none;
             }
             
             .trust-badge {
                 left: 50%;
                 transform: translateX(-50%);
-                bottom: -20px;
-            }
-            
-            @keyframes badgeFloat {
-                0%, 100% { transform: translateX(-50%) translateY(0); }
-                50% { transform: translateX(-50%) translateY(-8px); }
+                bottom: -25px;
             }
         }
-        
-        /* Entrance animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-in {
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-            opacity: 0;
-        }
-        
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
-        .delay-6 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
 
-    <!-- Background Blobs -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-
-    <!-- Hero Section -->
-    <section class="hero">
+    <div class="page-wrapper">
         <div class="container">
-            <div class="hero-content">
+            
+            <!-- Logo -->
+            <div class="logo animate-fade-up delay-1">
+                <img src="https://www.parkbusinesscapital.com/wp-content/uploads/2025/09/LOGO.svg" alt="Park Business Capital">
+            </div>
+            
+            <!-- Hero Grid -->
+            <div class="hero-grid">
+                
+                <!-- Text Side -->
                 <div class="hero-text">
-                    <div class="logo animate-in delay-1">
-                        <img src="https://www.parkbusinesscapital.com/wp-content/uploads/2025/09/LOGO.svg" alt="Park Business Capital">
-                    </div>
-                    
-                    <h1 class="animate-in delay-2">
-                        Funding to<br>fuel your<br>
-                        <span class="accent">
-                            business
-                            <span class="leaf-accent">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1.5 0 3-.3 4.3-.9-.5-1.1-.8-2.3-.8-3.6 0-4.4 3.6-8 8-8 .5 0 1 0 1.5.1C23.5 5.5 18.5 2 12 2z" fill="currentColor"/>
-                                    <path d="M17 12c0 2.8 2.2 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <h1 class="animate-fade-up delay-2">
+                        <span class="headline-row">Funding to</span>
+                        <span class="headline-row">fuel your</span>
+                        <span class="headline-row">
+                            <span class="business-word">
+                                business
+                                <svg class="leaf-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" fill="none"/>
+                                    <path d="M6 18C6 13 10 8 17 6C17 6 16 13 11 16C9 17.5 6 18 6 18Z" fill="#10b981"/>
+                                    <path d="M6 18C9 14 12 12 17 6" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/>
                                 </svg>
                             </span>
                         </span>
                     </h1>
                     
-                    <p class="subtitle animate-in delay-3">
+                    <p class="subtitle animate-fade-up delay-3">
                         Compare multiple loan options at once and choose the best fit for your needs with confidence.
                     </p>
                     
-                    <a href="https://www.parkbusinesscapital.com/start-application/" class="cta-button animate-in delay-4">
+                    <a href="https://www.parkbusinesscapital.com/start-application/" class="cta-button animate-fade-up delay-4">
                         See My Funding Options
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
                     
                     <!-- Media Logos -->
-                    <div class="media-logos animate-in delay-5">
-                        <span>As seen in</span>
-                        <div class="logo-row">
+                    <div class="media-section animate-fade-up delay-5">
+                        <div class="media-label">As Seen In</div>
+                        <div class="media-logos">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/WSJ_Logo.svg" alt="Wall Street Journal">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/CNBC_logo.svg" alt="CNBC">
                             <img src="https://w7.pngwing.com/pngs/288/367/png-transparent-forbes-logo-others-company-text-business.png" alt="Forbes">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/CNN.svg" alt="CNN">
-                            <img src="https://static.wikia.nocookie.net/logopedia/images/0/09/FOXBusiness_2019.svg/revision/latest?cb=20190930114950" alt="Fox Business">
                         </div>
                     </div>
                 </div>
                 
-                <div class="hero-image animate-in delay-3">
-                    <!-- Decorative frame accents -->
-                    <div class="frame-accent frame-accent-1"></div>
-                    <div class="frame-accent frame-accent-2"></div>
+                <!-- Visual Side -->
+                <div class="hero-visual animate-fade-in delay-3">
                     
-                    <div class="image-wrapper">
-                        <!-- Replace this image URL with your own -->
-                        <img src="https://pbc-funding-options.vercel.app/GettyImages-2170865647.jpg" alt="Small business owner at work">
+                    <!-- Corner Accents -->
+                    <div class="corner-accent corner-top-right"></div>
+                    <div class="corner-accent corner-bottom-left"></div>
+                    
+                    <!-- Image -->
+                    <div class="image-container">
+                        <img src="https://pbc-funding-options.vercel.app/GettyImages-2170865647.jpg" alt="Small business owner working">
                     </div>
                     
-                    <!-- Floating trust badge -->
-                    <div class="trust-badge">
-                        <div class="trust-badge-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Trust Badge -->
+                    <div class="trust-badge animate-slide-in delay-6">
+                        <div class="badge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                                 <path d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
-                        <div class="trust-badge-text">
-                            <strong>No Credit Impact</strong>
-                            Quick & secure process
+                        <div class="badge-text">
+                            <div class="badge-title">No Credit Impact</div>
+                            <div class="badge-subtitle">Quick & secure process</div>
                         </div>
                     </div>
+                    
                 </div>
+                
             </div>
+            
         </div>
-    </section>
+    </div>
 
 </body>
 </html> 
