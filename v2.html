@@ -1,1 +1,401 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funding for Your Business | Park Business Capital</title>
+    
+    <!-- Minimal font load for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #1a2744;
+            --blue: #2B78DC;
+            --mint: #4ade80;
+            --mint-light: #dcfce7;
+            --gray-50: #f8fafc;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+        }
+        
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--gray-50);
+            color: var(--navy);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 50%, #f0fdf4 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle background decoration */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(43, 120, 220, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero-text {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            margin-bottom: 2.5rem;
+        }
+        
+        .logo img {
+            height: 36px;
+            width: auto;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 .accent {
+            color: var(--blue);
+            position: relative;
+        }
+        
+        /* Leaf accent similar to reference */
+        h1 .accent::after {
+            content: '🌿';
+            position: absolute;
+            top: -0.3em;
+            right: -0.6em;
+            font-size: 0.4em;
+            opacity: 0.8;
+        }
+        
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 420px;
+        }
+        
+        /* Primary CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--mint-light);
+            color: var(--navy);
+            font-size: 1.125rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: 2px solid transparent;
+        }
+        
+        .cta-button:hover {
+            background: var(--mint);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(74, 222, 128, 0.3);
+        }
+        
+        .cta-button svg {
+            transition: transform 0.25s ease;
+        }
+        
+        .cta-button:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* Hero Image */
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(26, 39, 68, 0.12);
+        }
+        
+        /* Media logos bar */
+        .media-logos {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            flex-wrap: wrap;
+        }
+        
+        .media-logos span {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .media-logos img {
+            height: 18px;
+            width: auto;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transition: opacity 0.2s;
+        }
+        
+        .media-logos img:hover {
+            opacity: 0.7;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .contact-card {
+            max-width: 480px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-card h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: var(--gray-50);
+            transition: all 0.2s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--blue);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(43, 120, 220, 0.1);
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            font-family: inherit;
+            color: white;
+            background: var(--blue);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-top: 0.5rem;
+        }
+        
+        .submit-button:hover {
+            background: #1e5bb8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(43, 120, 220, 0.3);
+        }
+        
+        .privacy-note {
+            font-size: 0.8125rem;
+            color: var(--gray-400);
+            margin-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 1.5rem;
+                min-height: auto;
+                padding-top: 2rem;
+                padding-bottom: 3rem;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-text {
+                order: 2;
+                text-align: center;
+            }
+            
+            .hero-image {
+                order: 1;
+            }
+            
+            .logo {
+                display: flex;
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .media-logos {
+                justify-content: center;
+            }
+            
+            .contact-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="logo">
+                        <img src="https://www.parkbusinesscapital.com/wp-content/uploads/2025/09/LOGO.svg" alt="Park Business Capital">
+                    </div>
+                    
+                    <h1>Funding to<br>fuel your<br><span class="accent">business</span></h1>
+                    
+                    <p class="subtitle">Compare multiple loan options at once and choose the best fit for your needs with confidence.</p>
+                    
+                    <a href="#contact" class="cta-button">
+                        See My Funding Options
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    
+                    <!-- Media Logos -->
+                    <div class="media-logos">
+                        <span>As seen in</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/WSJ_Logo.svg" alt="Wall Street Journal">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/CNBC_logo.svg" alt="CNBC">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Forbes_logo.svg/200px-Forbes_logo.svg.png" alt="Forbes">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/CNN.svg" alt="CNN">
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <!-- Replace this image with your own -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=700&fit=crop&crop=faces" alt="Small business owner at work">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-card">
+            <h2>Where should we send your results?</h2>
+            
+            <form action="https://www.parkbusinesscapital.com/start-application/" method="GET">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Smith" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@business.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                </div>
+                
+                <button type="submit" class="submit-button">Get My Results</button>
+            </form>
+            
+            <p class="privacy-note">We respect your privacy. No spam.</p>
+        </div>
+    </section>
+
+    <!-- Smooth scroll for anchor link -->
+    <script>
+        document.querySelector('a[href="#contact"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
