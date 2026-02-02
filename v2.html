@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funding for Your Business | Park Business Capital</title>
     
-    <!-- Minimal font load for speed -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -18,191 +18,341 @@
         }
         
         :root {
-            --navy: #1a2744;
-            --blue: #2B78DC;
-            --mint: #4ade80;
-            --mint-light: #dcfce7;
-            --gray-50: #f8fafc;
+            --navy: #0f1c2e;
+            --navy-light: #1a2d47;
+            --blue: #2563eb;
+            --blue-light: #3b82f6;
+            --mint: #34d399;
+            --mint-light: #d1fae5;
+            --mint-dark: #059669;
+            --cream: #fefdfb;
+            --peach: #fef3e2;
+            --gray-100: #f1f5f9;
             --gray-400: #94a3b8;
             --gray-600: #475569;
         }
         
         body {
-            font-family: 'DM Sans', -apple-system, sans-serif;
-            background: var(--gray-50);
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background: var(--cream);
             color: var(--navy);
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
         }
         
-        /* Hero Section - Full viewport */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 2rem;
-            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 50%, #f0fdf4 100%);
             position: relative;
             overflow: hidden;
         }
         
-        /* Subtle background decoration */
-        .hero::before {
-            content: '';
+        /* Animated background blobs */
+        .blob {
             position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 60%;
-            height: 80%;
-            background: radial-gradient(ellipse, rgba(43, 120, 220, 0.05) 0%, transparent 70%);
-            pointer-events: none;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+        
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            bottom: -5%;
+            right: -5%;
+            animation-delay: -7s;
+        }
+        
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            top: 50%;
+            left: 30%;
+            animation-delay: -14s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 30px) scale(1.02); }
         }
         
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
+            z-index: 10;
         }
         
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
         
         .hero-text {
             position: relative;
-            z-index: 1;
         }
         
+        /* Logo */
         .logo {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
         
         .logo img {
-            height: 36px;
+            height: 40px;
             width: auto;
         }
         
+        /* Headline */
         h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
+            font-size: clamp(2.75rem, 5.5vw, 4rem);
+            font-weight: 800;
             color: var(--navy);
-            line-height: 1.15;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
         }
         
         h1 .accent {
-            color: var(--blue);
+            color: var(--navy);
             position: relative;
             display: inline-block;
         }
         
-        /* Leaf accent similar to reference */
-        h1 .accent::after {
-            content: '🌿';
+        /* Stylized leaf/plant accent */
+        .leaf-accent {
             position: absolute;
-            top: -0.2em;
-            right: -0.5em;
-            font-size: 0.35em;
-            opacity: 0.8;
+            top: -8px;
+            right: -20px;
+            width: 28px;
+            height: 28px;
+        }
+        
+        .leaf-accent svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--mint);
         }
         
         .subtitle {
-            font-size: 1.125rem;
+            font-size: 1.2rem;
             color: var(--gray-600);
-            margin-bottom: 2rem;
-            max-width: 420px;
+            margin-bottom: 2.5rem;
+            max-width: 440px;
+            line-height: 1.7;
         }
         
-        /* Primary CTA Button - High contrast */
+        /* CTA Button */
         .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.875rem;
             background: var(--mint-light);
             color: var(--navy);
             font-size: 1.125rem;
-            font-weight: 600;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            font-weight: 700;
+            padding: 1.125rem 2.25rem;
+            border-radius: 100px;
             text-decoration: none;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid transparent;
+            box-shadow: 0 4px 14px rgba(52, 211, 153, 0.25);
         }
         
         .cta-button:hover {
             background: var(--mint);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(74, 222, 128, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(52, 211, 153, 0.35);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px);
         }
         
         .cta-button svg {
-            transition: transform 0.25s ease;
+            transition: transform 0.3s ease;
         }
         
         .cta-button:hover svg {
-            transform: translateX(4px);
+            transform: translateX(5px);
         }
         
-        /* Hero Image */
-        .hero-image {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 24px;
-            object-fit: cover;
-            box-shadow: 0 20px 60px rgba(26, 39, 68, 0.12);
-        }
-        
-        /* Media logos bar */
+        /* Media logos */
         .media-logos {
             display: flex;
             align-items: center;
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.75rem;
+            margin-top: 3.5rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(0,0,0,0.06);
             flex-wrap: wrap;
         }
         
         .media-logos span {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--gray-400);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+        
+        .logo-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
         
         .media-logos img {
-            height: 18px;
+            height: 16px;
             width: auto;
-            opacity: 0.4;
+            opacity: 0.35;
             filter: grayscale(100%);
-            transition: opacity 0.2s;
+            transition: all 0.3s ease;
         }
         
         .media-logos img:hover {
-            opacity: 0.7;
+            opacity: 0.6;
+            filter: grayscale(0%);
+        }
+        
+        /* Hero Image */
+        .hero-image {
+            position: relative;
+        }
+        
+        .image-wrapper {
+            position: relative;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(15, 28, 46, 0.1) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+        }
+        
+        /* Decorative frame elements */
+        .frame-accent {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--mint);
+            border-radius: 24px;
+            opacity: 0.5;
+        }
+        
+        .frame-accent-1 {
+            top: -20px;
+            right: -20px;
+            border-left: none;
+            border-bottom: none;
+        }
+        
+        .frame-accent-2 {
+            bottom: -20px;
+            left: -20px;
+            border-right: none;
+            border-top: none;
+        }
+        
+        /* Floating badge */
+        .trust-badge {
+            position: absolute;
+            bottom: 30px;
+            left: -30px;
+            background: white;
+            padding: 1rem 1.25rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 10;
+            animation: badgeFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .trust-badge-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--mint-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .trust-badge-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--mint-dark);
+        }
+        
+        .trust-badge-text {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            line-height: 1.3;
+        }
+        
+        .trust-badge-text strong {
+            display: block;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.9rem;
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .hero {
                 padding: 1.5rem;
                 min-height: 100vh;
                 padding-top: 2rem;
-                padding-bottom: 2rem;
+                padding-bottom: 3rem;
             }
             
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
             }
             
             .hero-text {
@@ -212,6 +362,8 @@
             
             .hero-image {
                 order: 1;
+                max-width: 400px;
+                margin: 0 auto;
             }
             
             .logo {
@@ -220,7 +372,7 @@
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.25rem;
             }
             
             .subtitle {
@@ -235,26 +387,89 @@
             
             .media-logos {
                 justify-content: center;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .logo-row {
+                justify-content: center;
+            }
+            
+            .frame-accent {
+                display: none;
+            }
+            
+            .trust-badge {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -20px;
+            }
+            
+            @keyframes badgeFloat {
+                0%, 100% { transform: translateX(-50%) translateY(0); }
+                50% { transform: translateX(-50%) translateY(-8px); }
             }
         }
+        
+        /* Entrance animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
+
+    <!-- Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <div class="logo">
+                    <div class="logo animate-in delay-1">
                         <img src="https://www.parkbusinesscapital.com/wp-content/uploads/2025/09/LOGO.svg" alt="Park Business Capital">
                     </div>
                     
-                    <h1>Funding to<br>fuel your<br><span class="accent">business</span></h1>
+                    <h1 class="animate-in delay-2">
+                        Funding to<br>fuel your<br>
+                        <span class="accent">
+                            business
+                            <span class="leaf-accent">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1.5 0 3-.3 4.3-.9-.5-1.1-.8-2.3-.8-3.6 0-4.4 3.6-8 8-8 .5 0 1 0 1.5.1C23.5 5.5 18.5 2 12 2z" fill="currentColor"/>
+                                    <path d="M17 12c0 2.8 2.2 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </span>
+                    </h1>
                     
-                    <p class="subtitle">Compare multiple loan options at once and choose the best fit for your needs with confidence.</p>
+                    <p class="subtitle animate-in delay-3">
+                        Compare multiple loan options at once and choose the best fit for your needs with confidence.
+                    </p>
                     
-                    <a href="https://www.parkbusinesscapital.com/start-application/" class="cta-button">
+                    <a href="https://www.parkbusinesscapital.com/start-application/" class="cta-button animate-in delay-4">
                         See My Funding Options
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -262,18 +477,41 @@
                     </a>
                     
                     <!-- Media Logos -->
-                    <div class="media-logos">
+                    <div class="media-logos animate-in delay-5">
                         <span>As seen in</span>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/WSJ_Logo.svg" alt="Wall Street Journal">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/CNBC_logo.svg" alt="CNBC">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Forbes_logo.svg/200px-Forbes_logo.svg.png" alt="Forbes">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/CNN.svg" alt="CNN">
+                        <div class="logo-row">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/WSJ_Logo.svg" alt="Wall Street Journal">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/CNBC_logo.svg" alt="CNBC">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Forbes_logo.svg/200px-Forbes_logo.svg.png" alt="Forbes">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/CNN.svg" alt="CNN">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Fox_Business.svg/200px-Fox_Business.svg.png" alt="Fox Business">
+                        </div>
                     </div>
                 </div>
                 
-                <div class="hero-image">
-                    <!-- Replace this image URL with your own -->
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=700&fit=crop&crop=faces" alt="Small business owner at work">
+                <div class="hero-image animate-in delay-3">
+                    <!-- Decorative frame accents -->
+                    <div class="frame-accent frame-accent-1"></div>
+                    <div class="frame-accent frame-accent-2"></div>
+                    
+                    <div class="image-wrapper">
+                        <!-- Replace this image URL with your own -->
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=750&fit=crop&crop=faces" alt="Small business owner at work">
+                    </div>
+                    
+                    <!-- Floating trust badge -->
+                    <div class="trust-badge">
+                        <div class="trust-badge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div class="trust-badge-text">
+                            <strong>No Credit Impact</strong>
+                            Quick & secure process
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
